@@ -1,20 +1,23 @@
 .octopus {
-	margin-top: 200px;
-	margin-left: 40%;
+	margin-top: 170px;
+	margin-left: 75px;
 }
 
 
 .hat {
 	position: relative;
-	left: 38%;
-	top: 300px;
+	top: -200px;
+	left: 480px;
+	
 
 }
 
 
 .glasses {
 	position: relative;
-	left: 7%;
-	top: 360px;
+	top: -130px;
+	left: 255px;
+	
+	
 
 }
