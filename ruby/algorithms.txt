@@ -1,0 +1,33 @@
+when door opens, enter elevator
+rotate to face the door
+locate control panel
+select floor number for destination
+	if not possible, ask another passenger
+		--if no, then push towards control panel and enter destination
+when elevator moves, monitor display for location
+when destination floor is reached, and door opens, exit elevator
+
+
+
+when dog approaches, determine if making hunger faces
+if no, pet dog
+if yes, determine if dog has been fed
+	if yes, pet dog
+	if no,
+		feeding routine
+		go to cabinet
+		open cabinet door
+		open food container
+		remove correct amount of food
+			correct food routine
+				determine calories already consumed
+				CorrectAmt = DailyCal - Consumed
+		pour food into bowl
+		puts "get it"
+		close food container
+		close cabinet door
+check water
+	if empty, add water
+	if manky, replace water
+
+
