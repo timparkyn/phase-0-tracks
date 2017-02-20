@@ -23,17 +23,22 @@ while counter < employees
 
 
 
-	if allergies =! "done"
+	until allergies == "done" or allergies == "sunshine"
 
 		puts "Do you have any suspicious allergies?"
 		allergies = gets.chomp
 
 		if allergies == "sunshine"
 			puts "Probably a vampire"
+			allergies = "done"
 		end
 
 		
 	end
+
+
+
+	p "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
 			
 
