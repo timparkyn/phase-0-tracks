@@ -1,7 +1,4 @@
 
-# RELEASE 1 #1 ------------------------\/
-
-
 #def languages
 #	lang1 ="HTML"
 #	lang2 = "CSS"
@@ -12,9 +9,6 @@
 
 #languages { |lang1, lang2, lang3| puts "#{lang1}, #{lang2}, #{lang3}"}
 
-
-
-# RELEASE 1 #2 ------------------------\/
 
 #.each
 #trees = ["maple", "cherry","palm", "oak"]
@@ -54,7 +48,7 @@
 # old_trees
 
 
-# RELEASE 2 #1 --------------------- \/
+# 1 --------------------- \/
 # array condition method 
 
 # numbers = [ 1, 5, 9, 13 ]
@@ -76,10 +70,7 @@
 
 #p fruit
 
-
-
-
-# RELEASE 2  #2 --------------------- \/
+# 2 --------------------- \/
 
 # array condition method
 # numbers = [ 1, 5, 9, 13 ]
@@ -101,64 +92,9 @@
 
 #p fruit
 
-
-
-
-# RELEASE 2 #3 -------------------- \/
-
-## array method ##
-fruit = [ 2, 4, 6, 8, 10 ]
-odd_fruit = {
-	"apples" => 1,
-	"pear" => 3,
-	"peach" => 5,
-	"grapes" => 7,
-	"plums" => 9
-}
-
-p fruit
-
-p fruit.select{ |item| item < 5 }
-
-p odd_fruit.select{ |fruit, quant| quant < 5 }
-
-p fruit.grep(2)
-
-
-p fruit
-
-
-
-
-# RELEASE 2 #4 ---------------------\/
-
-
-
-p fruit.drop_while {|fruit| fruit < 5 }
-
-p fruit.drop(3)
-
-p #odd_fruit.collect{ |fruit, quant| quant < 5 }
-
-
-
-
-p fruit
-
-
-
-
-
-
-
-
-
-
+# 3 -------------------- \/ 
 
 # array condition method 
-# p fruit.collect{ |item| item >7  }
-
-#p fruit.collect{|num| num**2 }
 
 
 
