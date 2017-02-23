@@ -24,8 +24,18 @@ bikes = ['5 spot', 'GF02', 'Synapse', 'Pubic', 'Superlight']
 # changing value in an array
 bikes[0] = 'five spot'
 
+# gives count of bikes
+p bikes.count
+
+# give length of bikes
+p bikes.length
+
+# access two units within bikes
 p bikes[0]
 p bikes[2].upcase
+
+# prints all items within bikes
+bikes.each {|z| puts "Bike: #{z}"}
 
 
 
@@ -67,8 +77,15 @@ campgear = {
 
 puts campgear
 
+p 
+
+# prints all items in 'ondeck'
+campgear['ondeck'].each {|z| puts "#{z}"}
+
 p ' '
 
+
+# prints out a unit within 'bigbluebag'
 puts campgear['bigbluebag'][2]
 
 # replace value
@@ -100,6 +117,8 @@ campgear['lighting'][3].capitalize!
 p campgear['bigbluebag'][2].upcase
 
 p campgear
+
+
 
 #checks contents to see if empty
 p campgear.empty?
