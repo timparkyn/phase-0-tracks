@@ -90,3 +90,59 @@ p fibber(100)
 p fibber(100).include?(218922995834555169026)
 
 
+
+#
+#
+#
+
+def insertion_sort(numbers)
+    final = [numbers[0]]
+    numbers.delete_at(0)
+    # main code
+    for i in numbers
+        final_index = 0
+        while final_index < final.length
+            if i <= final[final_index]
+                final.insert(final_index,i)
+                break
+            elsif final_index == final.length-1
+                final.insert(final_index+1,i)
+                break
+            end
+            final_index+=1
+        end
+    end
+    # output
+    final
+end
+
+numbers = [ 44, 23, 01, 3, 99, 17, 87, 76, 61, 12]
+
+puts insertion_sort(numbers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
