@@ -112,9 +112,10 @@ while name != 'quit'
 
 		puts fake_name
 
-		fake_name_base = {name => fake_name}
-		#fake_name_base[:flname] = name
-		#fake_name_base[:codename] =  fake_name
+		fake_name_base[name] = fake_name
+
+
+	
 
 
 
@@ -122,12 +123,11 @@ while name != 'quit'
 
 end
 
-# fake_name_base.each do |flname, codename|
-# 	# puts flname 'is also known as' codename
-# 	# puts '{flname} is also known as #{codename}'
-# end
 
-p fake_name_base
+
+fake_name_base.each { |name, y| puts name,' is also known as ', y }
+
+
 
 
 
