@@ -70,7 +70,7 @@ name = ''
 
 #fake_name_base = Hash.new { |name, key| flname[key] =  }
 
-
+##**##  if vowel, then add to string, elsif consts add to srting
 
 
 while name != 'quit'
