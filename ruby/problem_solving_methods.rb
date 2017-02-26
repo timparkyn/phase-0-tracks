@@ -1,12 +1,25 @@
+
+ ## Release 0 ---------------------------------
+
+
 array = [ 23, 53, 47, 19, 11 ]
-
-
-
 
 def search_array(array, number)
 
+		counter = 0
 
-		array.find_index(number)
+		until counter == array.length
+
+			if number == array[counter]
+				puts counter
+			end
+
+			counter +=1
+
+		end
+
+# 		alternate method
+#		array.find_index(number)
 
 end
 
@@ -17,50 +30,11 @@ p search_array(array, 47)
 p search_array(array, 32)
 
 
-#fib = [0, 1, 1, 2]
-
-#6
-# fib.push.  fib.each{ |x| array (x-1) + array(x) }
-
-
-
-# fibcombo = [0, 1]
-
-
-# def fib(number)
-
-
-
-# fibcombo.length
-
-# counter = 0
-
-# counter1 = 1
-
-# 	until fibcombo.length == number do
-# 	# array.each do
-		
-# 	fibcombo << fibcombo[counter] + fibcombo[counter1]
-# 	#fibcombo << fibcombo[counter - 1] + fibcombo[counter]
-
-# 	# fibcombo << new_fib
-
-
-# 	counter += 1
-# 	counter1 += 1
-
-
-# 	end
-
-# 	p fibcombo
-
-# end
-
-# fib(6)
 
 
 
 
+## Release 1 ------------------------------------------
 
 def fibber(number)
 
@@ -76,10 +50,8 @@ def fibber(number)
 
 	end
 
-	### if p is commented out, throws error:
-	### problem_solving_methods.rb:88:in `<main>': undefined method `include?' for nil:NilClass (NoMethodError)
-	### don't know why
-	p fibby
+	
+	return fibby
 
 end
 
@@ -91,9 +63,18 @@ p fibber(100).include?(218922995834555169026)
 
 
 
-#
-#
-#
+
+
+# Release 2 --------------------------------------------------------
+
+
+# make array of integers
+# go through array from index 0 through end
+# compare the current index with index+1
+# if current index is less than index+1, but it in the final list
+# continue until the array is finished
+
+
 
 def insertion_sort(numbers)
     final = [numbers[0]]
