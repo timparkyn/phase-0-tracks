@@ -16,7 +16,7 @@
 
 def name_reverse(name)
 
-	# downcases, reverses first and lase names, then becomes array
+	# downcases, reverses first and lase names, then break name into an array
 	fake_name_arr = name.downcase.split(' ').reverse.join(' ').split('')
 
 	return fake_name_arr
@@ -24,61 +24,66 @@ def name_reverse(name)
 end
 
 
-def next_letter(letter)
-
+def next_vowel(letter)
+	
 	#searches for vowels, then replaces with next in array
 	counter = 0
 	vowel = ['a', 'e', 'i', 'o', 'u']
 	until counter == vowel.size do
 		if letter == vowel[counter]
-			new_letter = vowel[counter+1]
-
+			new_vowel = vowel[counter+1]
+			
 			#end of array correction
-			if new_letter == nil
-				new_letter = 'a'
+			if new_vowel == nil
+				
+				new_vowel = 'a'
 			end
+
 		end
 		counter += 1
 	end
 
+	return new_vowel
+	
+end
 
+def next_const(letter)
+	
 	#searches for consonants, then replaces with next in array
 	counter = 0
 	consts = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
 
-	until counter == consts.size do
+	until counter == consts.size  do
 		if letter == consts[counter]
-			new_letter = consts[counter+1]
-
-			# end of array correction
-			if new_letter == nil
-				new_letter = 'b'
+			new_const = consts[counter+1]
+		
+			#end of array correction
+			if new_const == nil
+				new_const = 'b'
 			end
+
 		end
 		counter += 1
 	end
 
-	return new_letter
+return new_const
 
 end
 
-fake_name_base = {}
+
  
 
  # declaring
 name = ''
-
-#fake_name_base = Hash.new { |name, key| flname[key] =  }
-
-##**##  if vowel, then add to string, elsif consts add to srting
+fake_name_base = {}
 
 
-while name != 'quit'
+
+loop do
 
 	name_counter = 0
 	fake_name = ''
 	fake_name_arr = []
-
 	puts 'Create a new codename (enter quit to end)'
 	name = gets.chomp
 
@@ -94,10 +99,17 @@ while name != 'quit'
 			# if a space is found in the array, add a space to the sting (no change)
 			if fake_name_arr[name_counter] == ' '
 				fake_name += ' '
+				
+			elsif ['a', 'e', 'i', 'o', 'u'].include?(fake_name_arr[name_counter])
+				
+				# if the letter is a vowel, add the next vowel	
+				fake_name += next_vowel(fake_name_arr[name_counter])
 
-			else
-			# otherwise add next_letter to string	
-				fake_name += next_letter(fake_name_arr[name_counter])
+			else 
+			
+				# else add the next consonant
+				fake_name += next_const(fake_name_arr[name_counter])
+				
 
 			end
 
@@ -106,6 +118,8 @@ while name != 'quit'
 
 		end
 
+		
+
 		#capitalize each name; split/capitalize/add back together
 		fake_name_temp = fake_name.split(' ')
 		fake_name = fake_name_temp[0].capitalize + ' ' + fake_name_temp[1].capitalize
@@ -113,19 +127,22 @@ while name != 'quit'
 		puts fake_name
 
 		fake_name_base[name] = fake_name
-
-
 	
+	else
 
+		break
 
 
 	end
+
+	
+	
 
 end
 
 
 
-fake_name_base.each { |name, y| puts name,' is also known as ', y }
+fake_name_base.each { |name, y| puts name + ' is also known as ' + y }
 
 
 
