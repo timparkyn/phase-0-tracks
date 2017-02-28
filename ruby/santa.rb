@@ -1,4 +1,4 @@
-# class Santa
+class Cyrus
 
 
 
@@ -7,10 +7,10 @@
 		p 'Initializing Santa instance...'
 	
 		
-		@gender = gender
-		@ethnicity = ethnicity
-		reindeer_ranking = ['Rudolph', 'Dasher', 'Dancer', 'Prancer', 'Vixen', 'Comet', 'Cupid', 'Donner', 'Blitzer']
-		@age = 0
+		# @gender = gender
+		# @ethnicity = ethnicity
+		# reindeer_ranking = ['Rudolph', 'Dasher', 'Dancer', 'Prancer', 'Vixen', 'Comet', 'Cupid', 'Donner', 'Blitzer']
+		# @age = 0
 
 
 	
@@ -26,15 +26,15 @@
 
 	def eat_milk_and_cookies(cookie)
 
-		puts "That was a delicious #{cookie}"
+		puts "That was a delicious #{cookie}."
 
 	end
 
 
-# end
+end
 
-# santas = []
-# santas << Santa.new("agender", "black")
+santas = []
+ santas << Cyrus.new("agender", "black")
 # santas << Santa.new("female", "Latino")
 # santas << Santa.new("bigender", "white")
 # santas << Santa.new("male", "Japanese")
@@ -42,11 +42,13 @@
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
 
-p santas.each {|x,y| puts x,  y}
+# p santas.each {|x,y| puts x,  y}
 
-speak
 
-eat_milk_and_cookies('magic brownie')
+
+Cyrus.speak
+
+Cyrus.eat_milk_and_cookies('magic brownie')
 
 
 
