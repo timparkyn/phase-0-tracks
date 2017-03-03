@@ -2,6 +2,7 @@ class TodoList
 
 	attr_reader  :list
 
+
 	def initialize(phrase) 
 
 			@list = phrase
@@ -23,11 +24,13 @@ class TodoList
 	end
 
 	def get_item(index)
+		
 		@list[index]
 
 	end
 
 	def get_items
+		
 		@list
 
 	end
@@ -36,12 +39,3 @@ class TodoList
 
 
 end
-
-# # oldList = TodoList.new
-# newlist= ""
-
-#newlist = TodoList.new(["do the dishes2", "mow the lawn2"])
-
-#p newlist
-
-# puts get_items[0]
