@@ -1,32 +1,47 @@
 class TodoList
 
-	def initialize(phrase) 
-			@get_item = []
-			@get_item << phrase
-			# @get_item << phrase2
+	attr_reader  :list
 
+	def initialize(phrase) 
+
+			@list = phrase
+			
 	end
 
 
 	def add_item(item)
 
-		@get_item << item
+		@list << item
 
 	end
 
 
 	def delete_item(item)
 
-		@get_item.delete(item)
+		@list.delete(item)
+
+	end
+
+	def get_item(index)
+		@list[index]
+
+	end
+
+	def get_items
+		@list
 
 	end
 
 
 
+
 end
 
-# oldList = TodoList.new
+# # oldList = TodoList.new
+# newlist= ""
 
-newlist = TodoList.new(["do the dishes", "mow the lawn"])
+#newlist = TodoList.new(["do the dishes2", "mow the lawn2"])
 
-puts newList
+#p newlist
+
+# puts get_items[0]
