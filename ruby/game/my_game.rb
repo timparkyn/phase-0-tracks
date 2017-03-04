@@ -1,36 +1,30 @@
-# user enters word
-
-
-
-
-class Jeopardy
+class Hangman
 # Number of guesses = word.length
 
 
-	attr_reader 
-
-	attr_accessor :word_array, :guess_array, :guesses, :word
+	attr_accessor :word_array, :guess_array, :guesses, :word, :guess_count
 
 	def initialize(word)
 
+		@guess_count = 0
+
+		puts
+
 		puts "i n i t i a l i z i n g . . ."
+
+		puts
 
 		@word = word
 		@word_array = []
 		@guess_array = []
-		@guess_count = word.length
-		# puts word.split('')
 		@word_array = word.split('')
-		# puts @word_array[2]
-		# puts @guess_count
 
+		# builds player inital blank answer set
 		@word_array.each do |index|
 
 			@guess_array << "_"
 
 		end
-
-		# puts @guess_array
 
 	end
 
@@ -52,18 +46,6 @@ class Jeopardy
 
 	end
 
-
-	def guesses(number)
-		# guess_counter = 0
-
-		
-
-		
-
-
-	end	
-
-
 	# No penalty for each guess
 
 	# When user guesses letter, that letter will show in context of word
@@ -71,117 +53,135 @@ class Jeopardy
 	def check_guess(guess)
 		guess_flag = false
 		counter = 0
-		puts @word.length
+		# puts @word.length
 
-		while counter < @word.length-1
-			puts word_array
-			puts guess
+		while counter < @word.length 
+			# puts word_array
+			# puts guess
 
 			if @word_array[counter] == guess
 				@guess_array[counter] = guess
 				puts "Correct!"
 				guess_flag = true
-
-
 			end
 
 			counter += 1
 
 		end
 
-		puts guess_array
-		@guess_count = @guess_count - 1
-
 		if guess_flag == false
 			puts "Fail"
 		end
-		# winlose
+		
+		return @guess_array
+
+	end
+
+
+# displays current correct letters
+	def guess_status
+			# puts '****'
+			# puts guess_array
+			current_array = ""
+			
+			guess_array.length.times do |each|
+				 current_array = current_array + guess_array[each] + " "
+			end
+
+			puts
+
+			puts current_array
+
+			puts
 
 	end
 
 
 	def winlose
 
-		# while guess_array != word_array
+		return guess_array == word_array
 
-		# 	puts "try again"
-
-
-		# else 
-
-		# 	break
-
-
-		# end
-
-
-
-		# if guess_count == 0 and word_array != guess_array
-		# 	puts "That was your last guess. You'll never amount to anything."
-
-
-		# elsif guess_array.length == word_array.length
-
-		# 	puts "You win, you magnificent bastard."
-
-		# end
-
-	
-		
 	end
+
 end
-
-
-
-
-# If win = congratulate, if lose = taunting message
-
-
-
-
-
-
-
-
-
-
 
 
 ## -------------------------------------- ##
 
+puts
+
+puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+
+# puts
+
 puts "It's time to play the game"
 
+puts
 
+# player enters word
+puts 'Player 1, enter a word:'
+word = gets.chomp
 
-# puts 'Player 1, enter a word:'
-# # word = gets.chomp
-game = Jeopardy.new('alameda')
+game = Hangman.new(word)
+
+guess_count = word.length
 
 
 
 ## guess routine ---------------------
 
-guess_counter = @word.length
+puts
 
-while guess_counter < 
+puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+
+puts "- - - P L A Y E R   2 - - -"
+
+puts
+
+puts game.guess_status
+
+puts
+
+guess_counter = 0
+
+while guess_counter < guess_count + 3
+
+	puts "You have #{guess_count - guess_counter + 3} guesses left."
+
+	puts "What is your guess?"
+	guess = gets.chomp
+
+	puts
+
+	game.check_guess(guess)
+
+	game.guess_status
+
+	guess_counter += 1
+
+	# check if player has won, if so exit loop
+	if game.winlose == true
+
+		break
+
+	end
+
+end
 
 
-game.check_guess('a')
+# If win = congratulate, if lose = taunting message
+if game.winlose == true
 
-puts @guess_array
+	puts "You win, you magnificent bastard!"
+
+else 
+
+	puts "You lose."
+	puts "Fat, drunk and stupid is no way to go through life, son."
+
+end
 
 
-# puts game.show_me_guess
-
-
-# # puts game.@guess_count
-# puts "test"
-# # puts @word_array(0)
-# # p word.guesses
-
-
-# # puts 'Player 2, enter a guess'
-# # guess = gets.chomp
 
 
 
