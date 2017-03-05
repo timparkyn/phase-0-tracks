@@ -1,7 +1,6 @@
 class Hangman
 # Number of guesses = word.length
 
-
 	attr_accessor :word_array, :guess_array, :guesses, :word, :guess_count
 
 	def initialize(word)
