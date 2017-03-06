@@ -79,13 +79,14 @@ class Hangman
 
 # displays current correct letters
 	def guess_status
-			# puts '****'
-			# puts guess_array
+		
 			current_array = ""
 			
 			guess_array.length.times do |each|
 				 current_array = current_array + guess_array[each] + " "
 			end
+
+			puts 
 
 			puts
 
@@ -105,7 +106,7 @@ class Hangman
 end
 
 
-## -------------------------------------- ##
+# -------------------------------------- ##
 
 puts
 
