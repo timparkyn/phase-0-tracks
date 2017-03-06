@@ -21,8 +21,11 @@ describe Hangman do
 	    expect(game.word_array.length == game.guess_array.length)
 	  end
 
-	it "checks character position in guess array" do
+	it "checks guess array has same characters as word_array" do
 		expect(game.word_array.length == game.guess_array.length)
 	  end
 
+  	it "checks that the guess can be found in word_array" do
+  		expect(game.check_guess('t') == game.guess_array[7])
+		end
 end
