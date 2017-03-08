@@ -4,25 +4,34 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Require_relative uses the stated file to access classes, methods, and data. 
+# Accessing the relative file allows you to access the code without having to have a very long single file.
+
+## Release 1
+## Use require_relative for files that you authored or other local files. Use require for outside files.
+
+
 require_relative 'state_data'
 
 class VirusPredictor
 
+  # sets instance variables, creates instance of a class
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # runs other methods, returns predicted_deaths and speed_of_spread
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
+  #private restricts access to the predicted_deaths method
   private
 
+  # calculates deaths based on pop density, "rounds" to an integer, then puts the estimate to the screen
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -40,7 +49,7 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
+  # estimates speed of spread based on density, puts it to the screen
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -76,11 +85,20 @@ alabama.virus_effects
 jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
 jersey.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population]) 
 california.virus_effects
 
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
+
+
+STATE_DATA.each do |state, data|
+
+  state = VirusPredictor.new(state, data[:population_density], data[:population])
+  state.virus_effects
+
+end
+
 
 
 #=======================================================================
