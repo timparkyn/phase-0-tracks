@@ -1,54 +1,60 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Petra].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # Require_relative uses the stated file to access classes, methods, and data. 
-# Accessing the relative file allows you to access the code without having to have a very long single file.
+# Accessing the relative file allows you to access the code without 
+## having to use a long single file.
 
 ## Release 1
-## Use require_relative for files that you authored or other local files. Use require for outside files.
+## Use require_relative for files that you authored or other local files. 
+## Use require for outside files.
 
 
 require_relative 'state_data'
 
 class VirusPredictor
 
-  # sets instance variables, creates instance of a class
-  def initialize(state_of_origin, population_density, population)
-    @state = state_of_origin
-    @population = population
-    @population_density = population_density
-  end
+    # sets instance variables, creates instance of a class
+    def initialize(state_of_origin, population_density, population)
+        
+        @state = state_of_origin
+        @population = population
+        @population_density = population_density
+  
+    end
 
 
 
-  # runs other methods, returns predicted_deaths and speed_of_spread
-  def virus_effects
-    predicted_deaths
-    speed_of_spread
-  end
+    # runs other methods, returns predicted_deaths and speed_of_spread
+    def virus_effects
 
-  #private restricts access to the predicted_deaths method
-  private
+        predicted_deaths
+        speed_of_spread
+  
+    end
 
-  # calculates deaths based on pop density, "rounds" to an integer, then puts the estimate to the screen
-  def predicted_deaths
-    # predicted deaths is solely based on population density
+  # private restricts access to the predicted_deaths method
+    private
 
-    death_multiplier = {0 => 0.05, 50 => 0.1, 100 => 0.2, 150 => 0.3, 200 => 0.4}
+          # calculates deaths based on pop density, "rounds" to an integer, then puts the estimate to the screen
+          def predicted_deaths
+           # predicted deaths is solely based on population density
 
-    death_multiplier.each do |density, multiplier|
+              death_multiplier = {0 => 0.05, 50 => 0.1, 100 => 0.2, 150 => 0.3, 200 => 0.4}
 
-      if @population_density >= density
+              death_multiplier.each do |density, multiplier|
 
-          @number_of_deaths = (@population * multiplier).floor
+               if @population_density >= density
 
-      end
+                    @number_of_deaths = (@population * multiplier).floor
+
+                end
     
 
-    end
+          end
 
     # if @population_density >= 200
     #   number_of_deaths = (@population * 0.4).floor
@@ -62,24 +68,24 @@ class VirusPredictor
     #   number_of_deaths = (@population * 0.05).floor
     # end
 
-    print "#{@state} will lose #{@number_of_deaths} people in this outbreak"
+        print "#{@state} will lose #{@number_of_deaths} people in this outbreak"
 
-  end
+   end
   # estimates speed of spread based on density, puts it to the screen
-  def speed_of_spread #in months
-    # We are still perfecting our formula here. The speed is also affected
-    # by additional factors we haven't added into this functionality.
-    spread = {0 => 2.5, 50 => 2, 100 => 1.5, 150 => 1, 200 => 0.5}
+    def speed_of_spread #in months
+      # We are still perfecting our formula here. The speed is also affected
+      # by additional factors we haven't added into this functionality.
+      spread = {0 => 2.5, 50 => 2, 100 => 1.5, 150 => 1, 200 => 0.5}
 
-    speed = 0.0
+      speed = 0.0
 
-    spread.each do |density, factor|
+      spread.each do |density, factor|
 
-      if @population_density >= density
+          if @population_density >= density
 
-          speed += factor
+              speed += factor
 
-      end
+          end
     
 
     end
@@ -98,7 +104,7 @@ class VirusPredictor
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
-  end
+    end
 
 end
 
@@ -123,8 +129,9 @@ end
 
 STATE_DATA.each do |state, data|
 
-  state = VirusPredictor.new(state, data[:population_density], data[:population])
-  state.virus_effects
+    state = VirusPredictor.new(state, data[:population_density], data[:population])
+    
+    state.virus_effects
 
 end
 
@@ -132,3 +139,21 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# The differences between the two hashes is that at the initial hash it's striaghtforward, using hash rockets.
+# The values for that hash contain the next hash, which is using symbols as its key .
+
+# require_relative makes the file reference another file for classes, methods or data.
+# This reference file should be local. 'require' is used to access files
+# that are not local.
+
+# the main way to iterate through a hash is by using .each in a do loop.
+# A similar statement can be made in a block command.
+
+# What stood out me was that the variables were very descriptive,
+# which made it easier to understand what the methods were doing.
+
+## The concept I most solidified was using .each with hashes,
+## and also I understood instance variables a bit better.
+
+
