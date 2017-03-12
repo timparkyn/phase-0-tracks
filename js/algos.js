@@ -6,6 +6,13 @@ var teams = ["Raiders", "49ers", "Chargers", "Rams"];
 
 var longest = "";
 
+var bikes = { mtb:"Five Spot", road:"GranFondo 02", city:"Public"};
+
+var thisWeek = { road: "GranFondo 02", dog: "Cyrus", cat: "Frankie", doggo: "sunny"};
+
+
+
+
 function sorter(array) {
 
 	longest = array[0];
@@ -23,29 +30,34 @@ function sorter(array) {
 }
 
 
+
 function compare(object1, object2) {
 
-// while loop true/false?
-	// object1.each do |key, value|
+	var array1 = Object.keys(object1);
+	var array2 = Object.keys(object2);
 
-	// 	object2.each do |key0, value0|
+	var condition = false
 
-	// 		if object2[key0] == object1[key]
+	// for each kv pair in object1, compares to each kv pair in object2
+	for (i = 0; i < array1.length; i++) {
 
-	// 			if key0 == key
+		for (v = 0; v < array2.length; v++) {
 
-	// 				console.log("true");
+			// console.log(array1[i], array2[v], object1[array1[i]], object2[array2[v]]);
 
+			if ((array1[i] == array2[v]) && (object1[array1[i]] == object2[array2[v]])) {
 
-	// 	end
+				condition = true;	
 
-	// 	if 
+			}
 
-	// end
+		}
+
+	}
+
+	console.log( condition );
 
 }
-
-
 
 
 
@@ -54,6 +66,8 @@ sorter(phrases);
 sorter(interjections);
 
 sorter(teams);
+
+compare(bikes, thisWeek);
 
 
 
