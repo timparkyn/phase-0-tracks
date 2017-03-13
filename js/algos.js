@@ -21,13 +21,15 @@ function sorter(array) {
 
 	for (i=0; i < array.length ; i++) {
 
-		if (longest.length < array[i].length)
+		if (array[0].length < array[i].length)
 
-			longest = array[i]
+			longest = array[i];
 
 	}
 
-	console.log(longest);
+	console.log("The longest word is: " + longest);
+
+	console.log("");
 
 }
 
@@ -63,19 +65,22 @@ function compare(object1, object2) {
 }
 
 
-function stringBuilder(integer) {
+function arrayBuilder(integer) {
 
-	words = ['seriously', 'sheisse', 'dogger', 'honestly', 'dank', 'artisinal', 'house-made', 'bespoke'];
+	words = ['seriously', 'huh', 'dogger', 'honestly', 'dank', 'artisinal', 'house-made', 'bespoke'];
 
-	builtArray = {}
+	var builtArray = [];
 
-	for (i=0; i < integer; i++) {
+	for (i = 0; i < integer; i++) {
 
-		builtArray[i] = words[Math.floor(Math.random() * 9)];
+		builtArray[i] = words[Math.floor(Math.random() * 8)];
 
 	}
 
 	console.log(builtArray);
+
+	
+	return builtArray;
 
 }
 
@@ -98,6 +103,13 @@ compare(bikes, thisWeek);
 // negative/false outcome
 compare(trails, bikes);
 
-stringBuilder(5);
+arrayBuilder(5);
 
+
+// release 2
+for ( k = 0; k < 10; k++ ) {
+	
+	sorter(arrayBuilder(Math.floor(Math.random() * 10)));
+
+}
 
