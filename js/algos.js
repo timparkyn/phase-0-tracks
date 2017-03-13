@@ -8,11 +8,13 @@ var longest = "";
 
 var bikes = { mtb:"Five Spot", road:"GranFondo 02", city:"Public"};
 
-var thisWeek = { road: "GranFondo 02", dog: "Cyrus", cat: "Frankie", doggo: "sunny"};
+var thisWeek = { road: "GranFondo 02", dog: "Cyrus", cat: "Frankie", doggo: "Sunny"};
+
+var trails = { Marin: "JCC", NevadaCity: "South Yuba", Truckee: "Yogi Bear", Meyers: "Armstrong" };
 
 
 
-
+// release 0
 function sorter(array) {
 
 	longest = array[0];
@@ -30,9 +32,10 @@ function sorter(array) {
 }
 
 
-
+// release 1
 function compare(object1, object2) {
 
+	// make keys into an array
 	var array1 = Object.keys(object1);
 	var array2 = Object.keys(object2);
 
@@ -60,14 +63,41 @@ function compare(object1, object2) {
 }
 
 
+function stringBuilder(integer) {
 
+	words = ['seriously', 'sheisse', 'dogger', 'honestly', 'dank', 'artisinal', 'house-made', 'bespoke'];
+
+	builtArray = {}
+
+	for (i=0; i < integer; i++) {
+
+		builtArray[i] = words[Math.floor(Math.random() * 9)];
+
+	}
+
+	console.log(builtArray);
+
+}
+
+
+
+
+
+
+
+// ------------ drive this ------------------
 sorter(phrases);
 
 sorter(interjections);
 
 sorter(teams);
 
+// positive/true outcome
 compare(bikes, thisWeek);
 
+// negative/false outcome
+compare(trails, bikes);
+
+stringBuilder(5);
 
 
