@@ -1,0 +1,39 @@
+SELECT * FROM students;
+
+	1|Milo|17|false|1
+	2|Joaquin|21|false|3
+	3|Hector|23|true|2
+	4|Mo|22|false|1
+
+
+UPDATE students SET graduated = "true" WHERE class_id = 3;
+
+	SELECT * from students;	
+	1|Milo|17|false|1
+	2|Joaquin|21|true|3
+	3|Hector|23|true|2
+	4|Mo|22|false|1
+
+
+
+SELECT * FROM students, classes WHERE students.class_id = classes.id;
+
+	1|Milo|17|false|1|1|Grinding|102|skate park|true
+	2|Joaquin|21|true|3|3|Fork Maintence|201|shop|false
+	3|Hector|23|true|2|2|Rock Gardens|311|bike park|true
+	4|Mo|22|false|1|1|Grinding|102|skate park|true
+
+
+SELECT students.name, classes.course_name FROM students JOIN classes ON students.class_id = classes.id;
+
+	Milo|Grinding
+	Joaquin|Fork Maintence
+	Hector|Rock Gardens
+	Mo|Grinding
+
+
+DELETE FROM students WHERE graduated = "true";
+
+	SELECT * from students;	
+	1|Milo|17|false|1
+	4|Mo|22|false|1
