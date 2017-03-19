@@ -18,20 +18,41 @@ create_table_cmd = <<-SQL
   )
 SQL
 
+
+
+db = SQLite3::Database.new("special.db")
 db.execute(create_table_cmd)
 
-# pre-populat special table
+# pre-populate special table
 
 
 
 # add new affirmation
-def add_affirm(new_affirm)
+def add_affirm(db, new_affirm)
   db.execute("INSERT INTO special (affirm) VALUES (?)", [new_affirm])
 end
 
-
-def list_affirms
+	# affirms = []
+def list_affirms(db)
 	affirms = db.execute("SELECT * FROM special")
-affirms.each do |listing|
- puts "#{listing['id']}:  #{listing['affirm']}"
+		affirms.each do |listing|
+	 	puts "#{listing}"
+	 end
 end
+
+
+
+
+
+
+
+# --------------- drive this -------------------
+
+add_affirm(db, 'you are so special')
+add_affirm(db, 'you make a positive contribution to the community')
+add_affirm(db, 'you are good enough')
+
+list_affirms(db)
+
+
+
