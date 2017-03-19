@@ -5,6 +5,11 @@
 # build method to display random affirm
 # create user interface to add affirm
 
+#user interface
+# ask user to get/add/end affirm
+# uf if/then on input 
+# keeps going until end
+
 
 
 require 'sqlite3'
@@ -16,6 +21,7 @@ create_table_cmd = <<-SQL
     id INTEGER PRIMARY KEY,
     affirm VARCHAR(255)
   )
+
 SQL
 
 
@@ -40,19 +46,63 @@ def list_affirms(db)
 	 end
 end
 
-
-
+def random_affirm(db)
+	affirms = db.execute("SELECT * FROM special")
+	
+	puts affirms[rand(affirms.length)]
+end
 
 
 
 
 # --------------- drive this -------------------
 
-add_affirm(db, 'you are so special')
-add_affirm(db, 'you make a positive contribution to the community')
-add_affirm(db, 'you are good enough')
+# add_affirm(db, 'you are special')
+# add_affirm(db, 'you make a positive contribution to the community')
+# add_affirm(db, 'you are good enough')
+# add_affirm(db, 'you put the art in artinsal')
+# add_affirm(db, 'bless your heart')
 
-list_affirms(db)
+# list_affirms(db)
+
+
+# random_affirm(db)
+
+
+user_input = ""
+
+while user_input != "end"
+
+	puts "Press enter to receive your affirmation, or add / end";
+	user_input = gets.chomp.downcase
+
+		if user_input == "end"
+
+			break
+
+		end
+
+		if user_input == "add"
+			puts "Enter your new affirmation:"
+			new_affirm = gets.chomp
+			add_affirm(db, new_affirm)
+
+			puts "Thank you for a wonderful submission."
+
+		end
+
+	random_affirm(db)
+
+end
+
+
+
+
+
+
+
+
+
 
 
 
