@@ -41,9 +41,13 @@ end
 	# affirms = []
 def list_affirms(db)
 	affirms = db.execute("SELECT * FROM special")
-		affirms.each do |listing|
+	puts ""
+	puts "----------"
+		affirms.each do |id, listing|
 	 	puts "#{listing}"
-	 end
+	 	end
+ 	puts "----------"
+ 	puts ""
 end
 
 def random_affirm(db)
@@ -71,27 +75,36 @@ end
 
 user_input = ""
 
+puts ""
+puts "### affirmation engine ###"
+puts ""
+
 while user_input != "end"
 
-	puts "Press enter to receive your affirmation, or add / end";
+	puts "Press enter to receive your affirmation, or add / see / end";
 	user_input = gets.chomp.downcase
 
 		if user_input == "end"
 
 			break
 
-		end
-
-		if user_input == "add"
+		elsif user_input == "add"
 			puts "Enter your new affirmation:"
 			new_affirm = gets.chomp
 			add_affirm(db, new_affirm)
 
 			puts "Thank you for a wonderful submission."
+			puts ""
+
+		elsif user_input == "see"
+			puts ""
+			list_affirms(db)
+
+		else 
+			random_affirm(db)
+			puts ""
 
 		end
-
-	random_affirm(db)
 
 end
 
