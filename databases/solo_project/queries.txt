@@ -37,3 +37,7 @@ DELETE FROM students WHERE graduated = "true";
 	SELECT * from students;	
 	1|Milo|17|false|1
 	4|Mo|22|false|1
+
+
+SELECT classes RIGHT JOIN students ON classes.id = students.class_id;
+
