@@ -14,8 +14,6 @@
 
 require 'sqlite3'
 
-
-
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS special(
     id INTEGER PRIMARY KEY,
@@ -53,7 +51,10 @@ end
 def random_affirm(db)
 	affirms = db.execute("SELECT * FROM special")
 	
-	puts affirms[rand(affirms.length)]
+	output = affirms[rand(affirms.length)]
+	puts ""
+	puts output[1]
+	puts ""
 end
 
 
@@ -97,13 +98,13 @@ while user_input != "end"
 			puts ""
 
 		elsif user_input == "see"
-			puts ""
+		
 			list_affirms(db)
 
 		else 
-			random_affirm(db)
-			puts ""
 
+			random_affirm(db)
+			
 		end
 
 end
