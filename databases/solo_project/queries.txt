@@ -39,5 +39,29 @@ DELETE FROM students WHERE graduated = "true";
 	4|Mo|22|false|1
 
 
-SELECT classes RIGHT JOIN students ON classes.id = students.class_id;
+
+
+## Note new data was added to tables to do JOIN exercizes. ##
+
+SELECT name, age, graduated, course_name FROM students INNER JOIN classes ON classes.id  = students.class_id;
+	Milo|17|false|Grinding
+	Mo|22|false|Grinding
+	Esteban|23|false|Bailing
+	Jorge|29|true|Buttering
+	Marta|26|false|Rock Gardens
+
+
+SELECT name, age FROM students LEFT JOIN classes ON students.class_id = classes.id WHERE students.age > 25;
+
+	Jorge|29
+	Marta|26
+
+
+SELECT course_name, name FROM classes CROSS JOIN students WHERE classes.id = students.class_id ORDER BY course_name;
+
+	Bailing|Esteban
+	Buttering|Jorge
+	Grinding|Milo
+	Grinding|Mo
+	Rock Gardens|Marta
 
