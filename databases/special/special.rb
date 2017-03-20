@@ -10,14 +10,37 @@
 # uf if/then on input 
 # keeps going until end
 
+# to add person
+# check existing table for entry
+# if not write new user
+# return 
 
 
 require 'sqlite3'
 
 create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS people(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255)
+  )
+
+SQL
+
+
+create_table_two = <<-SQL
   CREATE TABLE IF NOT EXISTS special(
     id INTEGER PRIMARY KEY,
-    affirm VARCHAR(255)
+    affirm VARCHAR(255),
+    user_id INTEGER,
+   	FOREIGN KEY (user_id) REFERENCES people(id)
+  )
+
+SQL
+
+create_table_one = <<-SQL
+  CREATE TABLE IF NOT EXISTS people(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255)
   )
 
 SQL
@@ -25,7 +48,8 @@ SQL
 
 
 db = SQLite3::Database.new("special.db")
-db.execute(create_table_cmd)
+db.execute(create_table_one)
+db.execute(create_table_two)
 
 # pre-populate special table
 
@@ -33,12 +57,16 @@ db.execute(create_table_cmd)
 
 # add new affirmation
 def add_affirm(db, new_affirm)
-  db.execute("INSERT INTO special (affirm) VALUES (?)", [new_affirm])
+  db.execute("INSERT INTO special (affirm, VALUES (?)", [new_affirm])
+  
+#wht is this?
+  db.execute("")
 end
 
 	# affirms = []
-def list_affirms(db)
-	affirms = db.execute("SELECT * FROM special")
+def list_affirms(db, name)
+	#needs JOIN
+	affirms = db.execute("SELECT * FROM special JOIN people WHERE nombre == name")
 	puts ""
 	puts "----------"
 		affirms.each do |id, listing|
@@ -55,6 +83,14 @@ def random_affirm(db)
 	puts ""
 	puts output[1]
 	puts ""
+end
+
+def user_admin(db, nombre)
+
+	 db.execute("INSERT INTO people (name) VALUES (?)", [nombre])
+
+	 puts "#{nombre} is now a new user"
+
 end
 
 
@@ -80,9 +116,16 @@ puts ""
 puts "### affirmation engine ###"
 puts ""
 
+puts "What is your name"
+nombre = gets.chomp
+
+user_admin(db, nombre)
+
+puts ""
+
 while user_input != "end"
 
-	puts "Press enter to receive your affirmation, or add / see / end";
+	puts "Press enter to receive one of your affirmations, or other / admin / add / see / end";
 	user_input = gets.chomp.downcase
 
 		if user_input == "end"
@@ -100,6 +143,9 @@ while user_input != "end"
 		elsif user_input == "see"
 		
 			list_affirms(db)
+
+
+
 
 		else 
 
