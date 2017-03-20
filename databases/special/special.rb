@@ -57,16 +57,16 @@ db.execute(create_table_two)
 
 # add new affirmation
 def add_affirm(db, new_affirm)
-  db.execute("INSERT INTO special (affirm, VALUES (?)", [new_affirm])
+  db.execute("INSERT INTO special (affirm) VALUES(?)", [new_affirm])
+
   
-#wht is this?
-  db.execute("")
+  
 end
 
-	# affirms = []
-def list_affirms(db, name)
+	affirms = []
+def list_affirms(db)
 	#needs JOIN
-	affirms = db.execute("SELECT * FROM special JOIN people WHERE nombre == name")
+	affirms = db.execute("SELECT * FROM special;")
 	puts ""
 	puts "----------"
 		affirms.each do |id, listing|
@@ -76,8 +76,23 @@ def list_affirms(db, name)
  	puts ""
 end
 
+# 	# affirms = []
+# def list_affirms(db, name)
+# 	#needs JOIN
+# 	affirms = db.execute("SELECT * FROM special JOIN people WHERE people.name = name")
+# 	puts ""
+# 	puts "----------"
+# 		affirms.each do |id, listing|
+# 	 	puts "#{listing}"
+# 	 	end
+#  	puts "----------"
+#  	puts ""
+# end
+
+
+
 def random_affirm(db)
-	affirms = db.execute("SELECT * FROM special")
+	affirms = db.execute("SELECT * FROM special;")
 	
 	output = affirms[rand(affirms.length)]
 	puts ""
@@ -125,7 +140,7 @@ puts ""
 
 while user_input != "end"
 
-	puts "Press enter to receive one of your affirmations, or other / admin / add / see / end";
+	puts "Press enter to receive one of your affirmations, or other / admin / add / list / end";
 	user_input = gets.chomp.downcase
 
 		if user_input == "end"
@@ -136,16 +151,15 @@ while user_input != "end"
 			puts "Enter your new affirmation:"
 			new_affirm = gets.chomp
 			add_affirm(db, new_affirm)
+			# add_affirm(db, new_affirm, nombre)
 
 			puts "Thank you for a wonderful submission."
 			puts ""
 
-		elsif user_input == "see"
+		elsif user_input == "list"
 		
 			list_affirms(db)
-
-
-
+			# list_affirms(db, nombre)
 
 		else 
 
