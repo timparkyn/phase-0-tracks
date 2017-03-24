@@ -14,3 +14,8 @@ break
 spend 20 with next resource
 
 add more time as needed
+
+
+# After googling for good resources, I ended up using the W3 tutorial, and did two 25 minute sessions reading and doing the exercizes. I felt that I wasn't incorporating the knowlege, so I moved over to Code Academy and spent an hour there going through the Jquery intros.
+
+
