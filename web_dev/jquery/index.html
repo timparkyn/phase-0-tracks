@@ -3,11 +3,81 @@
     <head>
 		<title>Result</title>
         <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
-        <script type='text/javascript' src='script.js'></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
+        <!-- <script type='text/javascript' src='script.js'></script> -->
 	</head>
 	<body>
-        <div></div> 
+        <div>
+        	<img id='one' src = 'DSC_4994_sm.jpg' >
+         	<img id='two' src = 'DSC_4995_sm.jpg' style="display: none">
+          	<img id='three' src = 'DSC_4996_sm.jpg' style="display: none">
 
-          <img id='sierra' src = 'https://static01.nyt.com/images/2017/03/22/us/california-measuring-snowpack-1490239868080/california-measuring-snowpack-1490239868080-master495.jpg'>
+        </div> 
+
+          
+
+          <script>
+
+$( document ).ready(function(){
+	// alert('YOSEF!');
+
+    $('div').click(function(){
+    	// alert('BROSEF!');
+    	 // $('img').animate({right: '500px'});
+        // $('div').fadeOut('slow');
+      	$('#one').delay(500).fadeOut('fast');
+        $('#two').fadeIn('fast').delay(500).fadeOut('fast');
+        $('#three').fadeIn('fast').delay(1000).fadeOut('fast')
+ 		// alert('two');
+ 		// $('#two').fadeIn('slow');
+ 		
+ 		// $('#two').fadeOut('slow');
+ 		// alert('three');
+ 		// $('#three').fadeIn('slow');
+    });
+
+     $('#two').click(function(){
+     	// alert('Two broham');
+     	$( '#two' ).css({
+    	"border": "30px",
+    	"border-color": "blue",
+    	"border-style": "solid",
+    	"border-width": "10px"
+
+    	});
+    		
+	});
+
+ 
+ 
+});
+
+
+
+    // $('#one').click(function(){
+
+
+
+// $( document ).ready(function() {
+
+// 	// one = document.getElementbyId('one');
+// 	// two = document.getElementbyId('two');
+// 	// three = document.getElementId('three');
+
+//     $('#one').click(function(){
+//     	 // $('img').animate({right: '500px'});
+//         $('#one').fadeout(200,fadeIn('slow') )
+//         // $('two').fadeout(200,fadeIn('slow') );
+//         // $('three').fadeout(200,fadeIn('slow') );
+//  		// alert('BROSEF!');
+//  		// $('img').fadeIn('slow');
+//     });
+ 
+// });
+
+</script>
 	</body>
+
+
+
 </html>
